@@ -1,0 +1,162 @@
+/* Receipts Component Styles */
+
+/* Table Styles */
+.receipts-table-container {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.receipts-table {
+  min-width: 650px;
+}
+
+.receipts-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+.receipts-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Status Indicators */
+.email-sent {
+  color: #4CAF50;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.email-not-sent {
+  color: #f44336;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Action Buttons */
+.receipt-action-btn {
+  transition: transform 0.2s;
+}
+
+.receipt-action-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Stats Cards */
+.receipts-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Dialog Styles */
+.receipt-dialog-paper {
+  border-radius: 16px;
+}
+
+.receipt-dialog-title {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+}
+
+.receipt-dialog-content {
+  padding: 24px;
+}
+
+.receipt-info-section {
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.receipt-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.receipt-info-row:last-child {
+  border-bottom: none;
+}
+
+.receipt-info-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.receipt-info-value {
+  color: #333;
+}
+
+.receipt-qr-section {
+  text-align: center;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.receipt-qr-image {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .receipts-table {
+    min-width: 100%;
+  }
+  
+  .receipts-table th,
+  .receipts-table td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+  
+  .stat-card {
+    padding: 12px;
+  }
+  
+  .stat-value {
+    font-size: 18px;
+  }
+  
+  .receipt-info-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

@@ -1,0 +1,828 @@
+/* ============================================
+   MerchantGateway.css - LevyPesa Merchant Admin Portal
+   SCOPE: All styles are scoped under .merchant-gateway
+   Primary Color: #115293 | Secondary Color: #066b27
+   FEATURES: Fixed heights with scroll bars
+   TABS: Register Merchant (0) | Manage Merchants (1)
+   ============================================ */
+
+/* ---------- Import Google Fonts (Original Fonts) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ---------- Main Container ---------- */
+.merchant-gateway {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ============================================================
+   SECTION 1: COMMON STYLES (Animations, Cards, Buttons)
+   ============================================================ */
+
+/* ---------- Keyframe Animations ---------- */
+@keyframes mg-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes mg-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+@keyframes mg-fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mg-slideIn {
+  from { opacity: 0; transform: translateX(-15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Animation Classes ---------- */
+.merchant-gateway .mg-float { animation: mg-float 3s ease-in-out infinite; }
+.merchant-gateway .mg-pulse { animation: mg-pulse 2s ease-in-out infinite; }
+.merchant-gateway .mg-fade-in-up { animation: mg-fadeInUp 0.4s ease-out; }
+.merchant-gateway .mg-slide-in { animation: mg-slideIn 0.3s ease-out; }
+
+/* ---------- Common Card Styles ---------- */
+.merchant-gateway .mg-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.merchant-gateway .mg-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.merchant-gateway .mg-card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.merchant-gateway .mg-card-header h5,
+.merchant-gateway .mg-card-header h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.merchant-gateway .mg-card-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ---------- Common Button Styles ---------- */
+.merchant-gateway .mg-btn-primary {
+  background: #115293 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 6px rgba(17, 82, 147, 0.2) !important;
+}
+
+.merchant-gateway .mg-btn-primary:hover {
+  background: #0d3f70 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(17, 82, 147, 0.3) !important;
+}
+
+.merchant-gateway .mg-btn-success {
+  background: #066b27 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.merchant-gateway .mg-btn-success:hover {
+  background: #058021 !important;
+  transform: translateY(-1px);
+}
+
+.merchant-gateway .mg-btn-outline {
+  border: 1.5px solid #115293 !important;
+  color: #115293 !important;
+  border-radius: 8px !important;
+  padding: 7px 18px !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  transition: all 0.3s ease !important;
+  background: transparent !important;
+}
+
+.merchant-gateway .mg-btn-outline:hover {
+  background: #115293 !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+.merchant-gateway .mg-btn-danger {
+  background: #dc3545 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-transform: none !important;
+}
+
+.merchant-gateway .mg-btn-danger:hover {
+  background: #c82333 !important;
+  transform: translateY(-1px);
+}
+
+.merchant-gateway .mg-btn-warning {
+  background: #ff9800 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-transform: none !important;
+}
+
+.merchant-gateway .mg-btn-warning:hover {
+  background: #e68900 !important;
+  transform: translateY(-1px);
+}
+
+/* ---------- Common Chip Styles ---------- */
+.merchant-gateway .mg-chip-success {
+  background: #e8f5e9 !important;
+  color: #066b27 !important;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+}
+
+.merchant-gateway .mg-chip-warning {
+  background: #fff3e0 !important;
+  color: #ff9800 !important;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+}
+
+.merchant-gateway .mg-chip-default {
+  background: #f5f5f5 !important;
+  color: #666 !important;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+}
+
+/* ---------- Common Alert Styles ---------- */
+.merchant-gateway .mg-alert-success {
+  background: #e8f5e9 !important;
+  color: #066b27 !important;
+  border-radius: 10px !important;
+  border-left: 4px solid #066b27 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.merchant-gateway .mg-alert-info {
+  background: #e3f2fd !important;
+  color: #115293 !important;
+  border-radius: 10px !important;
+  border-left: 4px solid #115293 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.merchant-gateway .mg-alert-warning {
+  background: #fff3e0 !important;
+  color: #e65100 !important;
+  border-radius: 10px !important;
+  border-left: 4px solid #ff9800 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.merchant-gateway .mg-alert-error {
+  background: #ffebee !important;
+  color: #c62828 !important;
+  border-radius: 10px !important;
+  border-left: 4px solid #dc3545 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ---------- Common Table Styles ---------- */
+.merchant-gateway .mg-table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.merchant-gateway .mg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+}
+
+.merchant-gateway .mg-table th {
+  text-align: left;
+  padding: 12px 10px;
+  background: #fafafa;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #115293;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.merchant-gateway .mg-table td {
+  padding: 10px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: 'Inter', sans-serif;
+}
+
+.merchant-gateway .mg-table tr:hover {
+  background: #fafafa;
+}
+
+/* ---------- Common Dialog Styles ---------- */
+.merchant-gateway .mg-dialog-title {
+  background: #115293 !important;
+  color: white !important;
+  padding: 16px 20px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- Common Loading ---------- */
+.merchant-gateway .mg-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ---------- Common API Key Display ---------- */
+.merchant-gateway .mg-api-key-display {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.merchant-gateway .mg-api-key-display:hover {
+  background: #eeeeee;
+  border-color: #115293;
+}
+
+/* ============================================================
+   SECTION 2: HEADER & TABS STYLES (FIXED)
+   ============================================================ */
+
+.merchant-gateway .mg-header-paper {
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #115293 0%, #1a6bb5 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(17, 82, 147, 0.2);
+  flex-shrink: 0;
+}
+
+.merchant-gateway .mg-header-paper h4,
+.merchant-gateway .mg-header-paper .MuiTypography-h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.merchant-gateway .mg-header-paper .MuiTypography-body2 {
+  font-family: 'Inter', sans-serif;
+}
+
+.merchant-gateway .mg-tabs-paper {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.merchant-gateway .mg-search-paper {
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION 3: TAB CONTENT & STAT CARDS
+   ============================================================ */
+
+/* Tab Content Container - Fixed height with scroll */
+.merchant-gateway .mg-tab-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+}
+
+/* Custom scrollbar for tab content */
+.merchant-gateway .mg-tab-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.merchant-gateway .mg-tab-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.merchant-gateway .mg-tab-content::-webkit-scrollbar-thumb {
+  background: #115293;
+  border-radius: 10px;
+}
+
+/* Stats Container - Inline row using Flexbox (4 cards in a row) */
+.merchant-gateway .mg-stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: space-between;
+}
+
+/* Each stat card takes equal width */
+.merchant-gateway .mg-stat-card {
+  flex: 1;
+  min-width: 180px;
+  background: white;
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.merchant-gateway .mg-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.merchant-gateway .mg-stat-icon {
+  font-size: 28px !important;
+  margin-bottom: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.merchant-gateway .mg-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 4px;
+}
+
+.merchant-gateway .mg-stat-label {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+/* Stat Card Background Colors - All using Primary Color #115293 */
+.merchant-gateway .mg-bg-success { 
+  background: linear-gradient(135deg, #115293 0%, #1a6bb5 100%); 
+  color: white; 
+}
+.merchant-gateway .mg-bg-info { 
+  background: linear-gradient(135deg, #115293 0%, #1a6bb5 100%); 
+  color: white; 
+}
+.merchant-gateway .mg-bg-warning { 
+  background: linear-gradient(135deg, #115293 0%, #1a6bb5 100%); 
+  color: white; 
+}
+.merchant-gateway .mg-bg-purple { 
+  background: linear-gradient(135deg, #115293 0%, #1a6bb5 100%); 
+  color: white; 
+}
+
+/* ============================================================
+   SECTION 4: REGISTER MERCHANT SECTION (FIXED + SCROLL)
+   ============================================================ */
+
+/* Register Merchant Card - Fixed height with scroll */
+.merchant-gateway .mg-register-card {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.merchant-gateway .mg-register-card .mg-card-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.merchant-gateway .mg-register-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.merchant-gateway .mg-register-title {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #115293;
+  margin-bottom: 8px;
+}
+
+.merchant-gateway .mg-register-subtitle {
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.merchant-gateway .mg-register-field {
+  margin-bottom: 16px;
+}
+
+.merchant-gateway .mg-register-field .MuiOutlinedInput-root {
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+.merchant-gateway .mg-keys-display {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+}
+
+.merchant-gateway .mg-keys-title {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #066b27;
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   SECTION 5: MANAGE MERCHANTS SECTION (FIXED + SCROLL)
+   ============================================================ */
+
+/* Manage Merchants Card - Fixed height with scroll */
+.merchant-gateway .mg-manage-card {
+  height: calc(100vh - 280px);
+  display: flex;
+  flex-direction: column;
+}
+
+.merchant-gateway .mg-manage-card .mg-card-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.merchant-gateway .mg-manage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.merchant-gateway .mg-filter-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.merchant-gateway .mg-search-field {
+  min-width: 250px;
+}
+
+.merchant-gateway .mg-status-select {
+  min-width: 150px;
+}
+
+/* Action Buttons Group */
+.merchant-gateway .mg-action-buttons {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.merchant-gateway .mg-action-btn {
+  padding: 4px !important;
+}
+
+/* Table Container with scroll */
+.merchant-gateway .mg-table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 450px);
+}
+
+/* Table Column Widths */
+.merchant-gateway .mg-table .col-name { width: 20%; }
+.merchant-gateway .mg-table .col-client-id { width: 18%; }
+.merchant-gateway .mg-table .col-phone { width: 12%; }
+.merchant-gateway .mg-table .col-balance { width: 12%; text-align: right; }
+.merchant-gateway .mg-table .col-status { width: 10%; text-align: center; }
+.merchant-gateway .mg-table .col-created { width: 12%; text-align: center; }
+.merchant-gateway .mg-table .col-actions { width: 16%; text-align: center; }
+
+/* Client ID text styling */
+.merchant-gateway .mg-client-id {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 11px;
+}
+
+/* ============================================================
+   SECTION 6: DIALOG SPECIFIC STYLES
+   ============================================================ */
+
+/* Merchant Details Dialog */
+.merchant-gateway .mg-detail-section {
+  margin-bottom: 20px;
+}
+
+.merchant-gateway .mg-detail-card {
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+}
+
+.merchant-gateway .mg-detail-title {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #115293;
+  margin-bottom: 12px;
+}
+
+.merchant-gateway .mg-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.merchant-gateway .mg-detail-label {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: #666;
+}
+
+.merchant-gateway .mg-detail-value {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* Transactions Dialog */
+.merchant-gateway .mg-transactions-table th,
+.merchant-gateway .mg-transactions-table td {
+  padding: 10px 8px;
+}
+
+/* ============================================================
+   SECTION 7: RESPONSIVE STYLES
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .merchant-gateway .mg-table .col-client-id { display: none; }
+  .merchant-gateway .mg-table th:nth-child(2),
+  .merchant-gateway .mg-table td:nth-child(2) { display: none; }
+}
+
+@media (max-width: 768px) {
+  .merchant-gateway { padding: 12px; }
+  
+  .merchant-gateway .mg-card-header { padding: 12px 16px; }
+  .merchant-gateway .mg-card-body { padding: 16px; }
+  
+  .merchant-gateway .mg-stats-container {
+    flex-direction: column;
+  }
+  
+  .merchant-gateway .mg-stat-card {
+    width: 100%;
+  }
+  
+  .merchant-gateway .mg-table .col-created { display: none; }
+  .merchant-gateway .mg-table th:nth-child(6),
+  .merchant-gateway .mg-table td:nth-child(6) { display: none; }
+  
+  .merchant-gateway .mg-table th,
+  .merchant-gateway .mg-table td { padding: 8px 6px; font-size: 11px; }
+  
+  .merchant-gateway .mg-action-buttons { gap: 2px; }
+  .merchant-gateway .mg-action-btn { padding: 2px !important; }
+  
+  .merchant-gateway .mg-register-card,
+  .merchant-gateway .mg-manage-card {
+    height: calc(100vh - 230px);
+  }
+}
+
+@media (max-width: 550px) {
+  .merchant-gateway .mg-table .col-phone { display: none; }
+  .merchant-gateway .mg-table th:nth-child(3),
+  .merchant-gateway .mg-table td:nth-child(3) { display: none; }
+  
+  .merchant-gateway .mg-search-field { min-width: 100%; }
+  .merchant-gateway .mg-status-select { min-width: 100%; }
+  
+  .merchant-gateway .mg-stat-value {
+    font-size: 18px;
+  }
+  .merchant-gateway .mg-stat-icon {
+    font-size: 22px !important;
+  }
+  .merchant-gateway .mg-stat-card {
+    padding: 12px;
+  }
+}
+
+/* ============================================================
+   SECTION 8: UTILITY CLASSES
+   ============================================================ */
+
+.merchant-gateway .mg-text-center { text-align: center; }
+.merchant-gateway .mg-text-right { text-align: right; }
+.merchant-gateway .mg-text-left { text-align: left; }
+
+.merchant-gateway .mg-mt-1 { margin-top: 8px; }
+.merchant-gateway .mg-mt-2 { margin-top: 16px; }
+.merchant-gateway .mg-mt-3 { margin-top: 24px; }
+
+.merchant-gateway .mg-mb-1 { margin-bottom: 8px; }
+.merchant-gateway .mg-mb-2 { margin-bottom: 16px; }
+.merchant-gateway .mg-mb-3 { margin-bottom: 24px; }
+
+.merchant-gateway .mg-p-1 { padding: 8px; }
+.merchant-gateway .mg-p-2 { padding: 16px; }
+.merchant-gateway .mg-p-3 { padding: 24px; }
+
+.merchant-gateway .mg-rounded { border-radius: 8px; }
+.merchant-gateway .mg-rounded-lg { border-radius: 12px; }
+.merchant-gateway .mg-rounded-xl { border-radius: 16px; }
+
+.merchant-gateway .mg-cursor-pointer { cursor: pointer; }
+
+/* ============================================================
+   SECTION 9: SCROLLBAR STYLES (Global for component)
+   ============================================================ */
+
+.merchant-gateway ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.merchant-gateway ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.merchant-gateway ::-webkit-scrollbar-thumb {
+  background: #115293;
+  border-radius: 10px;
+}
+
+.merchant-gateway ::-webkit-scrollbar-thumb:hover {
+  background: #0d3f70;
+}
+
+/* ============================================================
+   SECTION 10: MATERIAL UI OVERRIDES (Scoped)
+   ============================================================ */
+
+/* Tab indicator color */
+.merchant-gateway .MuiTabs-indicator {
+  background-color: #115293 !important;
+}
+
+/* Selected tab color */
+.merchant-gateway .Mui-selected {
+  color: #115293 !important;
+}
+
+/* Tab text styling */
+.merchant-gateway .MuiTab-root {
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.9rem !important;
+}
+
+/* Input focus border color */
+.merchant-gateway .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #115293 !important;
+}
+
+/* Input label focus color */
+.merchant-gateway .MuiInputLabel-root.Mui-focused {
+  color: #115293 !important;
+}
+
+/* Input label styling */
+.merchant-gateway .MuiInputLabel-root {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Input text styling */
+.merchant-gateway .MuiOutlinedInput-input {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Switch checked color */
+.merchant-gateway .MuiSwitch-switchBase.Mui-checked {
+  color: #066b27 !important;
+}
+
+.merchant-gateway .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #066b27 !important;
+}
+
+/* Dialog actions spacing */
+.merchant-gateway .MuiDialogActions-root {
+  padding: 16px 20px !important;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* Alert icon color */
+.merchant-gateway .MuiAlert-icon {
+  color: inherit !important;
+}
+
+/* Alert message styling */
+.merchant-gateway .MuiAlert-message {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+}
+
+/* Chip label styling */
+.merchant-gateway .MuiChip-label {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Typography styling */
+.merchant-gateway .MuiTypography-root {
+  font-family: 'Inter', sans-serif;
+}
+
+.merchant-gateway .MuiTypography-h4,
+.merchant-gateway .MuiTypography-h5,
+.merchant-gateway .MuiTypography-h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Button text styling */
+.merchant-gateway .MuiButton-root {
+  font-family: 'Poppins', sans-serif !important;
+}

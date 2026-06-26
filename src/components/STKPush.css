@@ -1,0 +1,120 @@
+/* STKPush.css */
+.stk-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.stk-paper {
+  background: white !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+  overflow: hidden;
+}
+
+.stk-header {
+  background: linear-gradient(135deg, #1976d2 0%, #115293 100%);
+  color: white;
+  padding: 24px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stk-header svg {
+  font-size: 28px;
+  color: white;
+}
+
+.stk-header h6 {
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+.stk-tabs {
+  border-bottom: 1px solid #eee !important;
+  background: #f8f9fa !important;
+}
+
+.stk-tabs .MuiTab-root {
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  min-height: 56px !important;
+}
+
+.stk-tabs .Mui-selected {
+  color: #1976d2 !important;
+}
+
+.stk-content {
+  padding: 28px 24px !important;
+}
+
+.stk-form .form-field {
+  margin-bottom: 24px !important;
+}
+
+.stk-form .MuiOutlinedInput-root {
+  border-radius: 10px !important;
+}
+
+.stk-initiate-btn {
+  width: 100%;
+  height: 52px !important;
+  background: linear-gradient(135deg, #1976d2 0%, #115293 100%) !important;
+  color: white !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  border-radius: 10px !important;
+  margin-top: 16px !important;
+  box-shadow: 0 4px 15px rgba(25, 118, 210, 0.4) !important;
+}
+
+.stk-checkout-alert {
+  border-radius: 10px !important;
+  background: #fff3e0 !important;
+  padding: 16px !important;
+  margin-bottom: 24px !important;
+}
+
+.stk-checkout-alert .checkout-id {
+  font-family: monospace;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+  font-size: 0.9rem !important;
+  word-break: break-all;
+  border: 1px solid #ffe0b2;
+}
+
+.stk-actions {
+  margin-top: 24px !important;
+}
+
+.stk-actions button {
+  height: 48px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  font-size: 0.95rem !important;
+}
+
+.stk-actions .confirm-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3) !important;
+}
+
+.stk-actions .status-btn {
+  border: 1px solid #1976d2 !important;
+  color: #1976d2 !important;
+}
+
+.stk-actions .cancel-btn {
+  border: 1px solid #f44336 !important;
+  color: #f44336 !important;
+}

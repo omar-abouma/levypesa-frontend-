@@ -1,0 +1,68 @@
+/* DrawerContent.css */
+.drawer-container {
+  width: 260px;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-header {
+  background: linear-gradient(135deg, #1976d2 0%, #115293 100%);
+  padding: 52px 50px !important;
+  text-align: center;
+}
+
+.drawer-header h6 {
+  color: white;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+}
+
+.drawer-header .caption {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.85rem !important;
+}
+
+.drawer-menu {
+  flex: 1;
+  padding: 20px 12px !important;
+}
+
+.drawer-menu .MuiListItem-root {
+  border-radius: 10px !important;
+  margin-bottom: 4px !important;
+  transition: all 0.2s ease;
+}
+
+.drawer-menu .MuiListItem-root:hover {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+}
+
+.drawer-menu .MuiListItemIcon-root {
+  color: #666;
+  min-width: 40px !important;
+}
+
+.drawer-menu .MuiListItemText-primary {
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #333;
+}
+
+.drawer-divider {
+  margin: 16px 0 !important;
+  background-color: #eee;
+}
+
+.drawer-footer {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.drawer-footer .version {
+  color: #999;
+  font-size: 0.8rem !important;
+}
