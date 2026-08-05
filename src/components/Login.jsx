@@ -9,7 +9,6 @@ import {
   Visibility,
   VisibilityOff,
   Storefront as StorefrontIcon,
-  Login as LoginIcon
 } from '@mui/icons-material';
 import axios from 'axios';
 import './Login.css';
@@ -51,17 +50,15 @@ const Login = ({ onLogin }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        withCredentials: true  // Important for session cookies
+        withCredentials: true
       });
       
       console.log('Login response:', response.data);
       
       if (response.data.success) {
-        // Store user data
         localStorage.setItem('levypesa_admin', JSON.stringify(response.data.user));
         localStorage.setItem('levypesa_auth', 'true');
         
-        // Call parent callback
         if (onLogin) {
           onLogin(response.data.user);
         }
@@ -73,10 +70,8 @@ const Login = ({ onLogin }) => {
       console.error('Error response:', err.response);
       
       if (err.response) {
-        // Server responded with error status
         setError(err.response.data?.error || `Server error: ${err.response.status}`);
       } else if (err.request) {
-        // Request was made but no response
         setError('Cannot connect to server. Please check if backend is running.');
       } else {
         setError(err.message || 'Login failed');
@@ -94,9 +89,6 @@ const Login = ({ onLogin }) => {
         style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
       
-      {/* Overlay */}
-      <div className="login-overlay"></div>
-      
       {/* Login Box */}
       <div className="login-wrapper">
         <Paper className="login-card">
@@ -104,10 +96,11 @@ const Login = ({ onLogin }) => {
           <div className="login-logo">
             <StorefrontIcon className="login-logo-icon" />
             <Typography variant="h4" className="login-title">
-              Levy<span>Pesa</span>
+              <span className="levy">Levy</span>
+              <span className="pesa">Pesa</span>
             </Typography>
             <Typography variant="body2" className="login-subtitle">
-             Enter your credentials to access the dashboard
+              Enter your credentials to access the dashboard
             </Typography>
           </div>
           
@@ -128,6 +121,8 @@ const Login = ({ onLogin }) => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="login-field"
+              variant="outlined"
+              margin="normal"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -145,6 +140,8 @@ const Login = ({ onLogin }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="login-field"
+              variant="outlined"
+              margin="normal"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -153,7 +150,10 @@ const Login = ({ onLogin }) => {
                 ),
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                    <IconButton 
+                      onClick={() => setShowPassword(!showPassword)} 
+                      edge="end"
+                    >
                       {showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>
@@ -170,7 +170,7 @@ const Login = ({ onLogin }) => {
               disabled={loading}
               className="login-button"
             >
-              {loading ? <CircularProgress size={24} /> : 'Sign In'}
+              {loading ? <CircularProgress size={24} color="inherit" /> : 'Sign In'}
             </Button>
           </form>
           
